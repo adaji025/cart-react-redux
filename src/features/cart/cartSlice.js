@@ -4,7 +4,7 @@ import cartItems from '../../cartItems'
 
 const initialState = {
     cartItems: cartItems,
-    amount: 4,
+    amount: 0,
     total: 0,
     isLoading: true
 }
@@ -31,7 +31,7 @@ const cartSlice = createSlice({
             cartItem.amount = cartItem.amount - 1
             console.log('click');
         },
-        calculateTotal: (state) => {
+        calculateTotals: (state) => {
             let amount = 0
             let total = 0
             state.cartItems.forEach((item) => {
@@ -46,6 +46,6 @@ const cartSlice = createSlice({
 
 console.log(cartSlice);
 
-export const { clearCart, removeItem, increase, decrease, calculateTotal } = cartSlice.actions
+export const { clearCart, removeItem, increase, decrease, calculateTotals } = cartSlice.actions
 
 export default cartSlice.reducer
